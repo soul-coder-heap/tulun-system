@@ -1,0 +1,3 @@
+/app/github/distributed-system-framework/src/db/build/CMakeFiles/rebuild_cache.dir
+/app/github/distributed-system-framework/src/db/build/CMakeFiles/edit_cache.dir
+/app/github/distributed-system-framework/src/db/build/CMakeFiles/db.dir
