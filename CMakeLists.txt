@@ -18,7 +18,10 @@ link_directories(/data/code/ml-platform-thirdparty/libevent/lib)
 ## json11
 include_directories(/data/code/ml-platform-thirdparty/json11/include)
 link_directories(/data/code/ml-platform-thirdparty/json11/lib)
-
-
-
+## fix
 add_subdirectory(src)
+add_subdirectory(client)
+add_subdirectory(server)
+add_subdirectory(informationCollector)
+add_subdirectory(loadBalanceServer)
+add_subdirectory(db)

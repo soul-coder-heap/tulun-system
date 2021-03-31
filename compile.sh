@@ -16,6 +16,6 @@ cmake3  -DCMAKE_BUILD_TYPE=RelWithDebInfo                     \
                 -DDEPS_DIR=/data/code/ml-platform-thirdparty  \
                 -DUSE_TORCH_CUDA=OFF                          \
                 -DBUILD_SHARED_LIBS=OFF ..
-make -j16 && make
+make -j4 && make
 popd
 echo OK

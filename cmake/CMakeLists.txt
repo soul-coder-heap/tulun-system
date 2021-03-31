@@ -1,5 +1,0 @@
-add_subdirectory(client)
-add_subdirectory(server)
-add_subdirectory(informationCollector)
-add_subdirectory(loadBalanceServer)
-add_subdirectory(db)
