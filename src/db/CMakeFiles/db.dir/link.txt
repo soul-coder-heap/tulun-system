@@ -1,1 +1,0 @@
-/opt/scylladb/bin/g++ -g -rdynamic CMakeFiles/db.dir/db.cpp.o -o ../../bin/db   -L/data/code/ml-platform-thirdparty/libevent/lib  -L/data/code/ml-platform-thirdparty/json11/lib  -Wl,-rpath,/data/code/ml-platform-thirdparty/libevent/lib:/data/code/ml-platform-thirdparty/json11/lib -lmysqlclient 

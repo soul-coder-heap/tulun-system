@@ -1,1 +1,0 @@
-/opt/scylladb/bin/g++ -g -rdynamic CMakeFiles/informationCollector.dir/informationCollectorClient.cpp.o -o ../../bin/informationCollector   -L/data/code/ml-platform-thirdparty/libevent/lib  -L/data/code/ml-platform-thirdparty/json11/lib 

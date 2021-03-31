@@ -1,1 +1,0 @@
-/opt/scylladb/bin/g++ -rdynamic CMakeFiles/db.dir/db.o -o db  -lmysqlclient 

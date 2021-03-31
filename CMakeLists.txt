@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.0.0)
-project(dsf)
+cmake_minimum_required(VERSION 3.18.0)
+project(tulun)
 
 set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} -g)
 
