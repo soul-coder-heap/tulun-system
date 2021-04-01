@@ -4,6 +4,7 @@
 
 
 > https://hub.docker.com/
+
 > ox80/ml-platform:0.2
 
 * vcpkg 路径为 `/vcpkg/scripts/buildsystems/vcpkg.cmake`
@@ -11,12 +12,19 @@
 ### vcpkg list
 
 > json11
+
 > fmt
+
 > libhv
+
 > boost
+
 > spdlog
+
 > libmysql
+
 > curl
+
 > ...
 
 
