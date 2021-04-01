@@ -11,6 +11,10 @@ fi
 cd build
 # use cuda torch, -DUSE_TORCH_CUDA
 install_prefix=/data/code/ml-platform-thirdparty/ml_unity
+
+#
+#cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake
+
 cmake3  -DCMAKE_BUILD_TYPE=RelWithDebInfo                     \
                 -DCMAKE_INSTALL_PREFIX=$install_prefix        \
                 -DDEPS_DIR=/data/code/ml-platform-thirdparty  \
