@@ -38,6 +38,7 @@ scl enable devtoolset-7 bash
 
 * 容器中编译时先执行 `scl enable devtoolset-7 bash` 将 g++ 切换为7.3
 * 亦或者在 CMakeLists.txt 中设置 g++ 路径为 ` /opt/rh/devtoolset-7/root/usr/bin/c++`
+* 需要 g++ 其他版本需 `yum install devtoolset-V` 选择即可
 
 ```
 set(CMAKE_CXX_COMPILER /opt/rh/devtoolset-7/root/usr/bin/g++)
