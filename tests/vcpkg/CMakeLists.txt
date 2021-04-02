@@ -3,7 +3,10 @@ cmake_minimum_required(VERSION 3.19)
 # 设置镜像VCPKG_ROOT所在的位置
 set(VCPKG_ROOT "/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE PATH "")
 set(CMAKE_TOOLCHAIN_FILE ${VCPKG_ROOT})
-set(CMAKE_BUILD_TYPE Release) # ***WARNING*** Library was built as DEBUG. Timings may be affected.
+set(CMAKE_BUILD_TYPE Release) # WARNING Library was built as DEBUG. Timings may be affected.
+set(CMAKE_CXX_COMPILER /opt/rh/devtoolset-7/root/usr/bin/g++)
+set(CMAKE_C_COMPILER /opt/rh/devtoolset-7/root/usr/bin/gcc)
+
 project(TEST_NOW)
  
 find_package(GTest CONFIG REQUIRED)

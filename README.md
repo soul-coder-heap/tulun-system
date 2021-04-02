@@ -30,6 +30,9 @@
 
 ### 编译
 
+* 下载镜像后执行 `start_docker.sh` 挂载
+
+
 ```
 sudo yum install devtoolset-7
 
