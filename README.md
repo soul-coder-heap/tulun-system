@@ -3,9 +3,9 @@
 ### vcpkg镜像 
 
 
-> https://hub.docker.com/
+> https://hub.docker.com/r/ox80/ml-platform/tags?page=1&ordering=last_updated
 
-> ox80/ml-platform:0.2
+> docker pull ox80/ml-platform:0.2
 
 * vcpkg 路径为 `/vcpkg/scripts/buildsystems/vcpkg.cmake`
 
