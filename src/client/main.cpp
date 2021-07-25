@@ -1,51 +1,42 @@
-/*************************************************************************
-    > File Name: main.cpp
-    > Author: lisicheng
-    > Mail: 1050592374@qq.com 
-    > Created Time: Sat 01 Dec 2018 04:38:56 AM PST
- ************************************************************************/
 
-#include <iostream>
+#include "informationCollectorServerThread.h"
 #include "logger.h"
 #include "system.h"
 #include "transfer.h"
-#include "informationCollectorServerThread.h"
+#include <iostream>
 
-
-
+namespace tl::blacklist {
 typedef void (System::*PFUNC)();
-typedef struct{
-  int type;	
+typedef struct {
+  int type;
   PFUNC pfunc;
 } SystemHandler;
 
-SystemHandler systemHandlerMap[]={
-	{EN_REGISTER,&System::Register},
-	{EN_LOGIN,&System::Login}
-};
-
+SystemHandler systemHandlerMap[] = {{EN_REGISTER, &System::Register},
+                                    {EN_LOGIN, &System::Login}};
 
 int main() {
-	System* s = new System();
-	sleep(1);
+  System *s = new System();
+  sleep(1);
 
-	for (;;) {
-		s->menu();
-		std::cout << "please input your type:";
-		int type;
-		std::cin >> type;
-		getchar();
-		int size = sizeof(systemHandlerMap)/sizeof(SystemHandler);
-		int i;
-		for (i = 0; i < size; ++i){
-			if(type == systemHandlerMap[i].type){
-				(s->*systemHandlerMap[i].pfunc)();
-			}
-		}
-		if(i>size)continue;
-		
-	}
+  for (;;) {
+    s->menu();
+    std::cout << "please input your type:";
+    int type;
+    std::cin >> type;
+    getchar();
+    int size = sizeof(systemHandlerMap) / sizeof(SystemHandler);
+    int i;
+    for (i = 0; i < size; ++i) {
+      if (type == systemHandlerMap[i].type) {
+        (s->*systemHandlerMap[i].pfunc)();
+      }
+    }
+    if (i > size)
+      continue;
+  }
 
-	delete s;
-	return 0;
+  delete s;
+  return 0;
 }
+} // namespace tl::blacklist

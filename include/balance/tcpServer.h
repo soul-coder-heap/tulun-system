@@ -2,22 +2,22 @@
 #define _TCP_SERVER_H_
 
 #include <string>
-using namespace std;
-
+namespace tl::blacklist {
 class TcpServer {
 public:
-  TcpServer(const std::string& ip, unsigned short port);
+  TcpServer(const std::string &ip, unsigned short port);
   int Accept();
-  int Send(int fd, const std::string& msg);
-  int Recv(int fd, std::string& msg);
+  int Send(int fd, const std::string &msg);
+  int Recv(int fd, std::string &msg);
   int getListenFd() const;
   std::string getIp() const;
   unsigned short getPort() const;
-private:  
+
+private:
   int m_listenFd;
   unsigned short m_port;
   std::string m_ip;
 };
 
-
+} // namespace tl::blacklist
 #endif

@@ -11,21 +11,7 @@
 
 ### vcpkg list
 
-> json11
-
-> fmt
-
-> libhv
-
-> boost
-
-> spdlog
-
-> libmysql
-
-> curl
-
-> ...
+> json11、fmt、 libhv、 boost、 spdlog、 libmysql、 curl ...
 
 
 ### 编译

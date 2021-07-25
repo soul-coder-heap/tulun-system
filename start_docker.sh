@@ -7,7 +7,7 @@ function run_docker() {
     local choose_line=$(($1+1))
     containerid=$(docker images | awk 'NR=='$choose_line' {print $1":"$2}')
     echo $containerid
-    docker run --rm -it --name $2 -v /mnt/d/Wslinux:/home -w /home $containerid  /bin/bash 
+    docker run --rm -it --name $2 -v /Users/advancer/workspace:/home -w /home $containerid  /bin/bash 
 
 }
 function exec_docker(){

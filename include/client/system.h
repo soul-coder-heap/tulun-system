@@ -1,31 +1,24 @@
-/*************************************************************************
-    > File Name: system.h
-    > Author: lisicheng
-    > Mail: 1050592374@qq.com 
-    > Created Time: Sun 25 Nov 2018 05:51:30 AM PST
- ************************************************************************/
-
 #ifndef __SYSTEM_H__
 #define __SYSTEM_H__
 
-#include <iostream>
-#include <json11.hpp>
 #include "logger.h"
 #include "subModule.h"
-
-using namespace std;
-
+#include <iostream>
+#include <json11.hpp>
+namespace tl::blacklist {
 class System {
 public:
-	System();
-	~System();
+  System();
+  ~System();
 
-	void menu();
-	void Register();
-	void Login();
-	void Exit();
+  void menu();
+  void Register();
+  void Login();
+  void Exit();
+
 private:
-	SubModule* m_subModule;
+  SubModule *m_subModule;
 };
 
+} // namespace tl::blacklist
 #endif

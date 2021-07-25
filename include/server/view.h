@@ -1,11 +1,11 @@
 #ifndef _VIEW_H_
 #define _VIEW_H_
-#include <json11.hpp>
 #include "db.h"
-
-namespace Json{
-    class Value{};
-}
+#include <json11.hpp>
+namespace tl::blacklist {
+namespace Json {
+class Value {};
+} // namespace Json
 
 class View {
 public:
@@ -41,5 +41,5 @@ public:
   void process(int fd, Json::Value &value);
 };
 
-
+} // namespace tl::blacklist
 #endif

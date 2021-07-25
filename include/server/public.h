@@ -2,11 +2,5 @@
 #define _PUBLIC_H_
 
 #include <iostream>
-using namespace std;
-
-
-
-
-
-
+namespace tl::blacklist {} // namespace tl::blacklist
 #endif

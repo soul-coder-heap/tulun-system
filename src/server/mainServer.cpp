@@ -1,26 +1,25 @@
+#include "logger.h"
 #include "server.h"
-#include "logger.h"
-#include "logger.h"
-#include <sys/socket.h>
-#include <netinet/in.h>
 #include <arpa/inet.h>
+#include <netinet/in.h>
+#include <sys/socket.h>
 
-
+namespace tl::blacklist {
 void listenClientConnectEventCallBack(int fd, short event, void *arg) {
-  Server *ser = static_cast<Server*>(arg);
+  Server *ser = static_cast<Server *>(arg);
   if (EV_READ | event) {
     struct sockaddr_in cli;
     socklen_t len;
-    int cfd = accept(fd, (struct sockaddr*)&cli, &len);
+    int cfd = accept(fd, (struct sockaddr *)&cli, &len);
     if (-1 == cfd) {
       LOG_FUNC_MSG("accept()", errnoMap[errno]);
       exit(0);
     }
-    write(ser->m_pool->getSubThreadSocketPairFd(), (char*)&cfd, 4);
+    write(ser->m_pool->getSubThreadSocketPairFd(), (char *)&cfd, 4);
   }
 }
 
-Server::Server(const std::string& ip, unsigned short port, int threadCnt) {
+Server::Server(const std::string &ip, unsigned short port, int threadCnt) {
   m_listenFd = socket(AF_INET, SOCK_STREAM, 0);
   if (-1 == m_listenFd) {
     LOG_FUNC_MSG("socket()", errnoMap[errno]);
@@ -32,7 +31,7 @@ Server::Server(const std::string& ip, unsigned short port, int threadCnt) {
   ser.sin_port = htons(port);
   ser.sin_addr.s_addr = inet_addr("127.0.0.1");
 
-  int res = bind(m_listenFd, (struct sockaddr*)&ser, sizeof(ser));
+  int res = bind(m_listenFd, (struct sockaddr *)&ser, sizeof(ser));
   if (-1 == res) {
     LOG_FUNC_MSG("bind()", errnoMap[errno]);
     exit(0);
@@ -54,20 +53,20 @@ Server::Server(const std::string& ip, unsigned short port, int threadCnt) {
   std::cin >> loadBalanceServerPort;
   m_tcpClient->Connect(loadBalanceServerIP, loadBalanceServerPort);
 #if 0
-  Json::Value value;
-  value["ip"] = ip;
-  value["port"] = port;
-  m_tcpClient->Send(value.toStyledString());
+        Json::Value value;
+        value["ip"] = ip;
+        value["port"] = port;
+        m_tcpClient->Send(value.toStyledString());
 
-  struct event* listenClinetConnectEvent = event_new(m_base, m_listenFd, EV_READ|EV_PERSIST, listenClientConnectEventCallBack, this);
-  if (!listenClinetConnectEvent) {
-    LOG_FUNC_MSG("event_new()", errnoMap[errno]);
-    exit(0);
-  }
-  event_add(listenClinetConnectEvent, nullptr);
-  event_base_dispatch(m_base);
+        struct event* listenClinetConnectEvent = event_new(m_base, m_listenFd, EV_READ|EV_PERSIST, listenClientConnectEventCallBack, this);
+        if (!listenClinetConnectEvent) {
+            LOG_FUNC_MSG("event_new()", errnoMap[errno]);
+            exit(0);
+        }
+        event_add(listenClinetConnectEvent, nullptr);
+        event_base_dispatch(m_base);
 #endif
-} 
+}
 
 Server::~Server() {
   delete m_pool;
@@ -75,3 +74,4 @@ Server::~Server() {
   event_base_free(m_base);
   close(m_listenFd);
 }
+} // namespace tl::blacklist
