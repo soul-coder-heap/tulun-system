@@ -28,4 +28,4 @@ function(add_test_library TEST_TARGET)
     endwhile() 
 endfunction(add_test_library)
 
-add_test_library(spdlog tl_component)
+add_test_library(spdlog tl::component)
