@@ -4,6 +4,7 @@
 #include <future>
 #include <thread>
 #include "tl/component/logger.h"
+#include "tl/component/parallel.hpp"
 int main(){
     using namespace tl::blacklist;
     std::cout <<"hello tulun blacklist syetem"<< std::endl;
@@ -26,6 +27,8 @@ int main(){
       LOG_SER("no.{} sql operator success, result {}",i,t);
   });
   t1.join();
+  Task<int()> task([](){std::cout <<"start service ..."<< std::endl;return 0b0111;});
+  task.then([](auto val){return 0b010101 + val;}).then([](auto val){std::cout <<"获取 value ："<<val<< std::endl;return 0;}).get();
   return 0;
 }
 
