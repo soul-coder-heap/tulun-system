@@ -29,3 +29,5 @@ function(add_test_library TEST_TARGET)
 endfunction(add_test_library)
 
 add_test_library(spdlog tl::component)
+add_test_library(function tl::component)
+#add_test_target(function)
