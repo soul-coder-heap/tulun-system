@@ -41,8 +41,6 @@ mark_as_advanced(
     CMAKE_EXE_LINKER_FLAGS_ASAN
     CMAKE_SHARED_LINKER_FLAGS_ASAN)
 
-#make install
-#set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/built/bin)
 
 set(TL_TOP_DIR ${PROJECT_SOURCE_DIR})
 #add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/cmake/tl/component)
@@ -50,7 +48,10 @@ set(TL_TOP_DIR ${PROJECT_SOURCE_DIR})
 include(${CMAKE_CURRENT_LIST_DIR}/cmake/tl/component/generate.cmake)
 include(${CMAKE_CURRENT_LIST_DIR}/cmake/tl/server/generate.cmake)
 # ut
-option (TL_COMPONENT_ENABLE_TESTS "If OFF, used to disable testing altogether." ON)
-if(${TL_COMPONENT_ENABLE_TESTS})
-    include(${CMAKE_CURRENT_LIST_DIR}/cmake/tl_test.cmake)
+option (TL_ENABLE_UT "If OFF, used to disable testing altogether." ON)
+if(${TL_ENABLE_UT})
+    set(UT_DIR_NAME xx-ut-bin)
+    set(UT_BIN_PATH ${CMAKE_CURRENT_LIST_DIR}/${UT_DIR_NAME})
+    #include(${CMAKE_CURRENT_LIST_DIR}/cmake/tl/ut/tl_ut.cmake)
+    add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/cmake/tl/ut ${UT_DIR_NAME})
 endif()

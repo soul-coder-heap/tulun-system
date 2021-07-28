@@ -1,4 +1,9 @@
 .vscode/
 built/
 build/
+xx-ut-bin/
 .vscode-inside/
+ut/.DS_Store
+*/.DS_Store
+*/*/.DS_Store
+*/*/*/.DS_Store

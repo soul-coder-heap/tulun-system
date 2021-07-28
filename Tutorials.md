@@ -3,7 +3,7 @@
 
 * 格式化代码
 
-> clang-foramt -i style=google $filename
+> clang-foramt -i -style=google $filename
 
 * 格式化时忽略
 

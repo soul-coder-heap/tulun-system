@@ -1,4 +1,5 @@
-
+#make install
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/ut-bin)
 macro(add_test_target TEST_TARGET)
     add_executable("${target}" "${PROJECT_SOURCE_DIR}/ut/${TEST_TARGET}_test.cpp")
     if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS 7.0)
