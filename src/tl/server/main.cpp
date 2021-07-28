@@ -4,7 +4,7 @@
 #include <future>
 #include <thread>
 #include "tl/component/logger.h"
-#include "tl/component/parallel.hh"
+#include "tl/component/future.hh"
 int main(){
     using namespace tl::blacklist;
     LOG_INFO("hello tulun blacklist syetem");

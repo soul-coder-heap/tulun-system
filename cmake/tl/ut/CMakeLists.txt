@@ -1,5 +1,7 @@
 #make install
 set(EXECUTABLE_OUTPUT_PATH ${UT_BIN_PATH})
+find_package(GTest CONFIG REQUIRED)
+find_package(benchmark CONFIG REQUIRED)
 macro(add_test_target TEST_TARGET)
     set(target "${TEST_TARGET}")
     add_executable("${target}" "${PROJECT_SOURCE_DIR}/ut/${TEST_TARGET}_test.cpp")
@@ -29,6 +31,17 @@ function(add_test_library TEST_TARGET)
         math(EXPR INDEX "${INDEX} + 1")  
     endwhile() 
 endfunction(add_test_library)
-
+#GTest::gtest
+#GTest::gtest_main 
+#GTest::gmock 
+#GTest::gmock_main
+#benchmark::benchmark 
+#benchmark::benchmark_main
 add_test_library(spdlog tl::component)
 add_test_target(function)
+add_test_library(task 
+    tl::component 
+    GTest::gtest 
+    GTest::gtest_main 
+    benchmark::benchmark 
+    benchmark::benchmark_main)
