@@ -7,7 +7,7 @@
 #include "tl/component/parallel.hh"
 int main(){
     using namespace tl::blacklist;
-    std::cout <<"hello tulun blacklist syetem"<< std::endl;
+    LOG_INFO("hello tulun blacklist syetem");
     tl::blacklist::init_tl_logger();
     LOG_SER("func = {}\tversion = {}","main","master");
     LOG_SQL("query success");
@@ -27,8 +27,16 @@ int main(){
       LOG_SER("no.{} sql operator success, result {}",i,t);
   });
   t1.join();
-  future<int()> f([](){std::cout <<"start service ..."<< std::endl;return 0b0111;});
-  f.then([](auto val){return 0b010101 + val;}).then([](auto val){std::cout <<"获取 value ："<<val<< std::endl;return 0;}).get();
+  future<int()> f([](){
+        LOG_INFO("start service ...");
+        return 0b0111;
+    });
+  f.then([](auto val){
+         return 0b010101 + val;
+  }).then([](auto val){
+          LOG_INFO("获取 value : {}", val);
+          return 0;
+  }).get();
   return 0;
 }
 
