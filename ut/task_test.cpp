@@ -1,12 +1,6 @@
-/*************************************************************************
-	> File Name: a.cpp
-	> Author: yafeng.zhao 
-	> Mail: 1841531744@qq.com
-	> Created Time: 三  7/28 23:14:04 2021
- ************************************************************************/
-
 #include <iostream>
 #include <type_traits>
+#include "tl/component/task.hh"
 
 template <typename Func>
 static inline auto apply(Func && func){
@@ -18,7 +12,15 @@ static inline auto apply(Func && func){
 }
 
 int main(){
+    using namespace tl::blacklist;
     apply([](){std::cout <<"haha"<< std::endl;});
     auto t = apply([](){return 1;});
     std::cout <<"t = "<<t<< std::endl;
+    auto task = make_task([t]{
+        std::cout <<"test"<< std::endl;
+        return t * 10001;
+    },[](auto &&val){
+        std::cout <<"test finish : "<<val<< std::endl;
+    });
+    (*task)();
 }

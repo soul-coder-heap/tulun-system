@@ -39,9 +39,4 @@ endfunction(add_test_library)
 #benchmark::benchmark_main
 add_test_library(spdlog tl::component)
 add_test_target(function)
-add_test_library(task 
-    tl::component 
-    GTest::gtest 
-    GTest::gtest_main 
-    benchmark::benchmark 
-    benchmark::benchmark_main)
+add_test_library(task tl::component)

@@ -27,7 +27,7 @@ int main(){
       LOG_SER("no.{} sql operator success, result {}",i,t);
   });
   t1.join();
-  future<int()> f([](){
+  /*future<int()> f([](){
         LOG_INFO("start service ...");
         return 0b0111;
     });
@@ -37,6 +37,7 @@ int main(){
           LOG_INFO("获取 value : {}", val);
           return 0;
   }).get();
+  */
   return 0;
 }
 
