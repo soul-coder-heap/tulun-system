@@ -14,13 +14,13 @@ int main() {
     std::cout <<"return 100 "<< std::endl;
     return 100;
   }).then([](auto j){
-        std::cout <<"get laste return  : "<<j<< std::endl;
+        std::cout <<"get last return  : "<<j<< std::endl;
   }).then([](){
-      std::cout << "hahahhaha" << std::endl;
-      return 100;
-  }).then([](auto i){
-        std::cout <<"yyds : "<<i<< std::endl;
-        return i;
+      std::cout << "xiao yang say : " << std::endl;
+      return std::string("fengfeng");
+  }).then([](auto && s){
+        std::cout <<s<<",yyds"<< std::endl;
+        return 20000;
   }).then([](auto i){
      std::cout <<i<<" mobvista"<< std::endl;
   }).then([]{
