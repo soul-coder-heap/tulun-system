@@ -15,6 +15,10 @@ int main() {
   }).then([](auto i){
         std::cout <<"yyds : "<<i<< std::endl;
         return i;
-  })//run(3);
+  }).then([](auto i){
+     std::cout <<i<<" mobvista"<< std::endl;
+  }).then([]{
+    std::cout <<"byebye"<< std::endl;
+  }).then([]{}).run(3);
   return 0;
 }

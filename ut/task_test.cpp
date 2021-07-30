@@ -18,4 +18,5 @@ int main(){
         std::cout <<"test finish : "<<val<< std::endl;
     });
     (*task)();
+    return 0;
 }
