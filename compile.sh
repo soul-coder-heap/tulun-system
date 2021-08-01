@@ -16,6 +16,8 @@ cmake -DCMAKE_BUILD_TYPE=${build_type}       \
       -DCMAKE_EXPORT_COMPILE_COMMANDS=ON     \
       -DNO_DEBUG=ON                          \
       -DBUILD_SHARED_LIBS=OFF ..
-make -j8 && make install
+cpus=`nproc --all`
+echo "cpus core : $cpus"
+make -j${cpus} && make install
 popd
 echo OK

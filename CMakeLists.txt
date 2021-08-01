@@ -7,11 +7,11 @@ set(CMAKE_TOOLCHAIN_FILE ${VCPKG_ROOT} CACHE STRING
     "Choose compile toolchain"
     FORCE)
 
-set( CMAKE_CXX_COMPILER "/opt/rh/devtoolset-7/root/usr/bin/g++" CACHE PATH
+set( CMAKE_CXX_COMPILER "/opt/rh/devtoolset-10/root/usr/bin/g++" CACHE PATH
     "Choose g++ version"
     FORCE)
 
-set( CMAKE_C_COMPILER "/opt/rh/devtoolset-7/root/usr/bin/gcc" CACHE PATH
+set( CMAKE_C_COMPILER "/opt/rh/devtoolset-10/root/usr/bin/gcc" CACHE PATH
     "Choose gcc version"
     FORCE)
 
@@ -40,7 +40,10 @@ mark_as_advanced(
     CMAKE_C_FLAGS_ASAN
     CMAKE_EXE_LINKER_FLAGS_ASAN
     CMAKE_SHARED_LINKER_FLAGS_ASAN)
-
+if(${NO_DEBUG})
+    add_definitions(-DNO_DEBUG)
+    message("-- cmake define macro")
+endif()
 
 set(TL_TOP_DIR ${PROJECT_SOURCE_DIR})
 #add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/cmake/tl/component)

@@ -68,6 +68,7 @@ int test_function() {
   // 存储到函数对象的调用
   std::function<void(int)> f_display_obj = PrintNum();
   f_display_obj(18);
+  return 0;
 }
 
 int main() {

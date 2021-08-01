@@ -57,7 +57,8 @@ public:
       //using Ret = typename std::result_of<typename std::decay<std::decltype(f)>::type(int)>::type;
       //using Ret = typename std::result_of<std::decltype(f)*()>::type;
       //using Ret = typename std::invoke_result_t<decltype(f)>;
-      typedef typename std::result_of<typename std::decay<decltype(f)>::type(void)>::type Ret;
+      //typedef typename std::result_of<typename std::decay<decltype(f)>::type()>::type Ret;
+      using Ret = typename std::result_of<typename std::decay<decltype(f)>::type()>::type;
       return future<Ret(Args...)>([func, f](Args &&... args) {
         std::async(func, std::forward<Args>(args)...).get();
         if constexpr (std::is_void_v<Ret>) {

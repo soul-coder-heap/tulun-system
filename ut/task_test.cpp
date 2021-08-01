@@ -11,7 +11,7 @@ int main(){
         std::cout <<"i = " <<i<< ", j = "<<j<<", d = "<<d<<std::endl;
     },std::make_tuple(123,345564,3453.564));
     std::cout <<"t = "<<t<< std::endl;
-    auto task = make_task([t]{
+    auto task = MakeTask([t]{
         std::cout <<"test"<< std::endl;
         return apply([&t]{return t;});
     },[](auto &&val){

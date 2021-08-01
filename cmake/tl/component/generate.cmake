@@ -1,12 +1,20 @@
 project(tl_component VERSION 1.0.0.0 LANGUAGES C CXX)
-find_package(spdlog REQUIRED CONFIG)
 add_library(tl_component STATIC
     ${TL_TOP_DIR}/src/tl/component/logger.cpp
+    ${TL_TOP_DIR}/src/tl/component/threadpool.cpp
 )
 
-target_link_libraries(tl_component PUBLIC spdlog::spdlog)
+find_package(spdlog REQUIRED CONFIG)
+target_link_libraries(tl_component PRIVATE spdlog::spdlog)
+find_package(unofficial-concurrentqueue CONFIG REQUIRED)
+target_link_libraries(tl_component PRIVATE unofficial::concurrentqueue::concurrentqueue -lpthread)
+find_package(Boost 1.75.0 REQUIRED)
+target_link_libraries(tl_component PRIVATE ${Boost_LIBRARIES})
+
+
 
 target_include_directories(tl_component PRIVATE ${TL_TOP_DIR}/include)
+target_include_directories(tl_component PUBLIC ${Boost_INCLUDE_DIRS})
 target_include_directories(tl_component PRIVATE ${TL_TOP_DIR}/src)
 target_include_directories(tl_component INTERFACE $<BUILD_INTERFACE:${TL_TOP_DIR}/include>)
 target_include_directories(tl_component INTERFACE $<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include>)
