@@ -5,11 +5,12 @@ int main(){
     tl::blacklist::ThreadPoolSingleton::Init(n);
     using namespace tl::blacklist;
     int ii = 0;
-    ThreadPoolSingleton::AsyncSubmit([&ii](){
+    auto i = ThreadPoolSingleton::AsyncSubmit([&ii](){
         std::cout <<"submit "<< std::endl;
         ii++;
         return 100000;
-    });/*.then([&ii](int i){
+    });
+    /*.then([&ii](int i){
         std::cout <<"then submit : "<<i<< std::endl;
         ii++;
     }).then([&ii](){
@@ -33,6 +34,8 @@ int main(){
         std::cout <<ii<< std::endl;
     }*/
     //while(1){if(ii > 2){break;}}
+
+    std::cout <<"i = "<<i.get()<< std::endl;
     return 0;
 
 }

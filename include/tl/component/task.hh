@@ -55,7 +55,6 @@ struct LambdaTaskIterator : public TaskIterator {
   ResultFunc resultfn;
   size_t total;
   std::atomic_int32_t count{0};
-
   LambdaTaskIterator(It &&iter, Func &&func, ResultFunc &&resultfn, size_t total)
       : iter(std::forward<It>(iter)), func(std::forward<Func>(func)),
         resultfn(std::forward<ResultFunc>(resultfn)), total(total) {}
