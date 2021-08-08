@@ -31,15 +31,20 @@ function(add_test_library TEST_TARGET)
         math(EXPR INDEX "${INDEX} + 1")  
     endwhile() 
 endfunction(add_test_library)
-#GTest::gtest
-#GTest::gtest_main 
-#GTest::gmock 
-#GTest::gmock_main
-#benchmark::benchmark 
-#benchmark::benchmark_main
+
 add_test_library(spdlog tl::component)
 add_test_target(function)
 add_test_library(task tl::component)
 add_test_library(then tl::component)
 add_test_library(threadpool tl::component)
 add_test_library(threadpool_singleton tl::component)
+
+# protobuf ut
+find_package(Protobuf CONFIG REQUIRED)
+protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS ${PROJECT_SOURCE_DIR}/protocol/message.proto)
+add_executable(protobuf ${PROJECT_SOURCE_DIR}/ut/protobuf_test.cpp
+                        ${PROTO_SRCS}
+                        ${PROTO_HDRS})
+target_include_directories(protobuf PRIVATE ${PROTOBUF_INCLUDE_DIRS})
+target_include_directories(protobuf PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
+target_link_libraries(protobuf PRIVATE protobuf::libprotoc protobuf::libprotobuf protobuf::libprotobuf-lite)
