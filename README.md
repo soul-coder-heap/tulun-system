@@ -5,7 +5,7 @@
 
 > [个人镜像](https://hub.docker.com/r/ox80/ml-platform/tags?page=1&ordering=last_updated)
 
-> docker pull ox80/ml-platform:0.3
+> docker pull ox80/ml-platform:0.4
 
 * vcpkg 路径为 `/vcpkg/scripts/buildsystems/vcpkg.cmake`
 
@@ -21,9 +21,9 @@
 | cassandra-driver        |       |       |
 | libcurl        |       |       |
 | libevent        |       |       |
+｜ protobuf｜｜｜
 
-
-* 临时安装测试库，使用 `scl enable devtoolset-7 bash`, 进入 `/vcpkg` 目录，用命令 `vcpkg install protobuf(eg)` 即可
+* 临时安装测试库，使用 `scl enable devtoolset-7 bash`, 进入 `/vcpkg` 目录，用命令 `./vcpkg install protobuf(eg)` 即可(需要`./`,否则 old than)
 
 ### 编译
 
