@@ -23,7 +23,7 @@
 | libevent        |       |       |
 
 
-* 临时安装测试库，使用 `sudo yum install devtoolset-7`, 进入 `/vcpkg` 目录，用命令 `vcpkg install protobuf(eg)` 即可
+* 临时安装测试库，使用 `scl enable devtoolset-7 bash`, 进入 `/vcpkg` 目录，用命令 `vcpkg install protobuf(eg)` 即可
 
 ### 编译
 
