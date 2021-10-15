@@ -3,7 +3,7 @@
 int main(){
     int n = 6;
     tl::blacklist::ThreadPoolSingleton::Init(n);
-    using namespace tl::blacklist;
+:using namespace tl::blacklist;
     int ii = 0;
     auto i = ThreadPoolSingleton::AsyncSubmit([&ii](){
         std::cout <<"submit "<< std::endl;
