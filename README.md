@@ -1,4 +1,14 @@
-# vcpkg + cmake
+
+
+# 核酸管理系统
+
+    核酸管理系统主要包括查询服务，更新服务，录制服务
+
+
+## third
+
+
+## vcpkg + cmake
 
 ### vcpkg镜像 
 
